@@ -4,7 +4,8 @@ if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
     tasks: function () {
-      return Tasks.find({});
+      // Show newest tasks at the top
+      return Tasks.find({}, {sort: {createdAt: -1}});
     }
   });
 
@@ -21,6 +22,8 @@ if (Meteor.isClient) {
         text: text,
         createdAt: new Date() // current time
       });
+
+      console.log(event);
 
       // Clear form
       event.target.text.value = "";
