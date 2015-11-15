@@ -10,6 +10,7 @@ if (Meteor.isServer) {
         { owner: this.userId }
       ]
     });
+  });
 }
 
 if (Meteor.isClient) {
